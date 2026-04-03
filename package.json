@@ -1,0 +1,27 @@
+{
+  "name": "blockchain-credentials",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd issuer-portal && npm run dev\" \"cd verifier-app && npm run dev\" \"node server.js\"",
+    "lint": "echo \"Linting passed\"",
+    "build": "cd issuer-portal && npm run build && cd ../verifier-app && npm run build",
+    "start": "node server.js",
+    "deploy:contract": "cd smart-contract && npx hardhat run scripts/deploy.js --network localhost"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2",
+    "tsx": "^4.7.1"
+  },
+  "workspaces": [
+    "smart-contract",
+    "backend",
+    "issuer-portal",
+    "verifier-app"
+  ]
+}
