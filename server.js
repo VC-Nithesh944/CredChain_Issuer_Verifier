@@ -33,7 +33,7 @@ if (isDev) {
   );
 
   app.use(
-    "/verifier",
+    "/verifier/",
     createProxyMiddleware({
       target: "http://localhost:3002",
       changeOrigin: true,
